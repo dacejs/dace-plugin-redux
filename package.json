@@ -1,0 +1,39 @@
+{
+  "name": "dace-plugin-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist --presets=env,dace",
+    "build:debug": "npm run build -- --watch",
+    "postrelease": "git push && git push origin --tags",
+    "prepare": "npm run build",
+    "release": "standard-version && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacejs/dace-plugin-redux.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dacejs/dace-plugin-redux/issues"
+  },
+  "homepage": "https://github.com/dacejs/dace-plugin-redux#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-merge-reducers": "0.0.2",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-dace": "../babel-preset-dace",
+    "dace": "../dace"
+  }
+}
