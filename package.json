@@ -1,10 +1,10 @@
 {
   "name": "dace-plugin-redux",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src -d dist --presets=env,dace",
+    "build": "rm -rf dist && babel src -d dist --presets=env,dace",
     "build:debug": "npm run build -- --watch",
     "postrelease": "git push && git push origin --tags",
     "prepare": "npm run build",

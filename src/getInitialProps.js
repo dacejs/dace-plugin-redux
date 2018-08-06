@@ -35,7 +35,6 @@ export default options => Target => class extends Component {
     const promises = options.map((item) => {
       const { reducer, promise } = item;
       store.injectReducer(reducer);
-      console.log('--store.getState():', store.getState());
       return promise({ store, match, query });
     });
     await Promise.all(promises);
