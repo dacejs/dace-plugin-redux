@@ -19,14 +19,7 @@ server
     // 查找当前 URL 匹配的路由
     const promises = matchRoutes(routes, req.url)
       .map(({ route, match, location, history }) => {
-        const ctx = {
-          store,
-          req,
-          res,
-          match,
-          location,
-          history
-        };
+        const ctx = { store, match, location, history };
         const { getInitialProps } = route.component;
         return getInitialProps ? getInitialProps(ctx) : null;
       })
