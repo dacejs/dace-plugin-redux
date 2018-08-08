@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+const { parse } = require('qs');
 
 /**
  * 网站入口组件
@@ -25,7 +26,9 @@ export default class App extends Component {
         .map(({ route, match }) => {
           const { component } = route;
           if (component && component.getInitialProps) {
-            const ctx = { match, store };
+            // 将解析后的 querystring 对象挂载到 location 对象上
+            const query = parse(window.location.search, { ignoreQueryPrefix: true });
+            const ctx = { match, query, store };
             const { getInitialProps } = component;
             return getInitialProps ? getInitialProps(ctx) : null;
           }

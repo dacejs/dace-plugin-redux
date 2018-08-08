@@ -17,9 +17,10 @@ server
   .get('*', async (req, res) => {
     const store = createStore();
     // 查找当前 URL 匹配的路由
-    const promises = matchRoutes(routes, req.url)
+    const { query, _parsedUrl: { pathname } } = req;
+    const promises = matchRoutes(routes, pathname)
       .map(({ route, match }) => {
-        const ctx = { match, store };
+        const ctx = { match, store, query };
         const { getInitialProps } = route.component;
         return getInitialProps ? getInitialProps(ctx) : null;
       })
