@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import PropTypes from 'prop-types';
-import { parse } from 'qs';
 import { connect } from 'react-redux';
 
 /**
@@ -23,12 +22,10 @@ export default class App extends Component {
       window.scrollTo(0, 0);
 
       const promises = matchRoutes([this.props.route], nextProps.location.pathname)
-        .map(({ route, match, location, history }) => {
+        .map(({ route, match }) => {
           const { component } = route;
           if (component && component.getInitialProps) {
-            // 将解析后的 querystring 对象挂载到 location 对象上
-            location.query = parse(location.search, { ignoreQueryPrefix: true });
-            const ctx = { match, location, history, store };
+            const ctx = { match, store };
             const { getInitialProps } = component;
             return getInitialProps ? getInitialProps(ctx) : null;
           }
