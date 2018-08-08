@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import RedBox from 'dace/dist/core/components/RedBox';
 import routes from 'dace/dist/core/routes';
+import { parse } from 'qs';
 import createStore from './createStore';
 
 const server = express();
@@ -19,6 +20,8 @@ server
     // 查找当前 URL 匹配的路由
     const promises = matchRoutes(routes, req.url)
       .map(({ route, match, location, history }) => {
+        // 将解析后的 querystring 对象挂载到 location 对象上
+        location.query = parse(location.search, { ignoreQueryPrefix: true });
         const ctx = { store, match, location, history };
         const { getInitialProps } = route.component;
         return getInitialProps ? getInitialProps(ctx) : null;

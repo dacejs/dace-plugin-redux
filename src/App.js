@@ -26,6 +26,8 @@ export default class App extends Component {
         .map(({ route, match, location, history }) => {
           const { component } = route;
           if (component && component.getInitialProps) {
+            // 将解析后的 querystring 对象挂载到 location 对象上
+            location.query = parse(location.search, { ignoreQueryPrefix: true });
             const ctx = { match, location, history, store };
             const { getInitialProps } = component;
             return getInitialProps ? getInitialProps(ctx) : null;
@@ -44,9 +46,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { route, location: { search }, store } = this.props;
-    // 将解析后的 querystring 对象挂载到 location 对象上
-    this.props.location.query = parse(search, { ignoreQueryPrefix: true });
+    const { route, store } = this.props;
     return renderRoutes(route.routes, store.getState());
   }
 }
