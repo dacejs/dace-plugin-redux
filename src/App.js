@@ -22,6 +22,10 @@ export default class App extends Component {
     if (navigated) {
       window.scrollTo(0, 0);
 
+      // 浏览器端路由（首次渲染后）时解析 querystring -> object
+      const query = parse(nextProps.location, { ignoreQueryPrefix: true });
+      nextProps.location.query = query;
+
       const promises = matchRoutes([this.props.route], nextProps.location.pathname)
         .map(({ route, match }) => {
           const { component } = route;
@@ -46,7 +50,10 @@ export default class App extends Component {
   }
 
   render() {
-    const { route, store } = this.props;
+    const { route, store, location } = this.props;
+    // 让 children 能通过 props.location.query 能取到 query string
+    // App 组件首次渲染时执行
+    location.query = parse(location.search, { ignoreQueryPrefix: true });
     return renderRoutes(route.routes, store.getState());
   }
 }
