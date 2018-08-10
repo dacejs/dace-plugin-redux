@@ -8,6 +8,11 @@ module.exports = {
     const entry = target === 'node' ? 'httpd' : 'client';
     appConfig.entry = path.resolve(__dirname, `${entry}.js`);
 
+    // 从 dace-plugin-redux 中读取 App.js
+    appConfig.resolve.alias = {
+      ...appConfig.resolve.alias,
+      '../../dist/core/components/App.js': path.resolve(__dirname, 'App.js')
+    };
     return appConfig;
   }
 };
