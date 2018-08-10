@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.12"></a>
+## [1.0.12](https://github.com/dacejs/dace-plugin-redux/compare/v1.0.11...v1.0.12) (2018-08-10)
+
+
+### Bug Fixes
+
+* 修复因 node_modules/dace-plugin-redux 存在引发的错误 ([330d91e](https://github.com/dacejs/dace-plugin-redux/commit/330d91e))
+* 解决服务器端渲染中文乱码的问题 ([35d2b00](https://github.com/dacejs/dace-plugin-redux/commit/35d2b00))
+
+
+
 <a name="1.0.11"></a>
 ## [1.0.11](https://github.com/dacejs/dace-plugin-redux/compare/v1.0.10...v1.0.11) (2018-08-09)
 
