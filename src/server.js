@@ -85,8 +85,10 @@ server
       const html = `<!doctype html>
   <html>
   <head>
+    <meta charset="utf-8" />
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
+    ${helmet.link.toString()}
     ${cssTags}
   </head>
   <body>
