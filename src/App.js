@@ -30,8 +30,6 @@ export default class App extends Component {
         .map(({ route, match }) => {
           const { component } = route;
           if (component && component.getInitialProps) {
-            // 将解析后的 querystring 对象挂载到 location 对象上
-            const query = parse(window.location.search, { ignoreQueryPrefix: true });
             const ctx = { match, query, store };
             const { getInitialProps } = component;
             return getInitialProps ? getInitialProps(ctx) : null;
@@ -41,8 +39,7 @@ export default class App extends Component {
         .filter(Boolean);
 
       try {
-        const [initialProps] = await Promise.all(promises);
-        // this.setState({ initialProps });
+        await Promise.all(promises);
       } catch (e) {
         console.log('getInitialProps error: ', e);
       }

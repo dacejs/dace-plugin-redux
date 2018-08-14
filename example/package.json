@@ -4,8 +4,8 @@
     "start": "NODE_ENV=local dace"
   },
   "dependencies": {
-    "dace": "latest",
-    "dace-plugin-redux": "latest",
+    "dace": "../../dace",
+    "dace-plugin-redux": "..",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   }

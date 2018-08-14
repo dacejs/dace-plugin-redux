@@ -6,6 +6,7 @@ import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
+import { document } from 'dace';
 import RedBox from 'dace/dist/core/components/RedBox';
 import routes from 'dace/dist/core/routes';
 import createStore from './createStore';
@@ -58,7 +59,6 @@ server
 
     const jsTags = renderTags('js', initialAssets);
     const cssTags = renderTags('css', initialAssets);
-    const helmet = Helmet.renderStatic();
 
     const context = {};
     const Markup = (
@@ -78,27 +78,14 @@ server
       markup = renderToString(<RedBox error={e} />);
     }
 
+    // renderStatic 需要在 root 元素 render 后执行
+    const head = Helmet.renderStatic();
+    const state = serialize(store.getState());
 
     if (context.url) {
       res.redirect(context.url);
     } else {
-      const html = `<!doctype html>
-  <html>
-  <head>
-    <meta charset="utf-8" />
-    ${helmet.title.toString()}
-    ${helmet.meta.toString()}
-    ${helmet.link.toString()}
-    ${cssTags}
-  </head>
-  <body>
-    <div id="root">${markup}</div>
-    <script>
-      window.INITIAL_STATE=${serialize(store.getState())};
-    </script>
-    ${jsTags}
-  </body>
-</html>`;
+      const html = document({ head, cssTags, jsTags, markup, state });
       res.status(200).send(html);
     }
   });
