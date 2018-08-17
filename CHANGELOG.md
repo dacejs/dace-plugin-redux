@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.0.14...v1.1.0) (2018-08-17)
+
+
+### Bug Fixes
+
+* 修复 server.js 找不到 chalk ([3f99144](https://github.com/dacejs/dace-plugin-redux/commit/3f99144))
+
+
+### Features
+
+* 提供 getInitialProps 以简化开发编码 ([4874ce1](https://github.com/dacejs/dace-plugin-redux/commit/4874ce1))
+
+
+
 <a name="1.0.14"></a>
 ## [1.0.14](https://github.com/dacejs/dace-plugin-redux/compare/v1.0.13...v1.0.14) (2018-08-17)
 
