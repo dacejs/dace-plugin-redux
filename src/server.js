@@ -21,7 +21,7 @@ server
     const { query, _parsedUrl: { pathname } } = req;
     const promises = matchRoutes(routes, pathname)
       .map(({ route, match }) => {
-        const ctx = { match, store, query };
+        const ctx = { match, store, query, req, res };
         const { getInitialProps } = route.component;
         return getInitialProps ? getInitialProps(ctx) : null;
       })
