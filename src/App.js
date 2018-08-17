@@ -51,6 +51,6 @@ export default class App extends Component {
     // 让 children 能通过 props.location.query 能取到 query string
     // App 组件首次渲染时执行
     location.query = parse(location.search, { ignoreQueryPrefix: true });
-    return renderRoutes(route.routes, store.getState());
+    return renderRoutes(route.routes, { ...store.getState(), store });
   }
 }
