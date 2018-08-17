@@ -9,10 +9,8 @@ import React, { Component } from 'react';
  * 以简化开发编码
  *
  * @param {object} options
- * @param {string} options.key
  * @param {function} options.reducer
  * @param {function|[function]} options.promise
- * @param {component} options.loading
  */
 export default options => Target => class extends Component {
   // static propTypes = {
@@ -27,17 +25,10 @@ export default options => Target => class extends Component {
   async componentDidMount() {
     // 该方法在页面浏览器端渲染时会调用
     // 在浏览器端动态添加reducer
-    if (!Array.isArray(options)) {
-      options = [options];
-    }
-
     const { store, match, location: { query } } = this.props;
-    const promises = options.map((item) => {
-      const { reducer, promise } = item;
-      store.injectReducer(reducer);
-      return promise({ store, match, query });
-    });
-    await Promise.all(promises);
+    const { reducer, promise } = options;
+    store.injectReducer(reducer);
+    await promise({ store, match, query });
   }
 
   /**
@@ -47,25 +38,15 @@ export default options => Target => class extends Component {
    * @param {object} options
    * @param {function} options.reducer 需要动态绑定的 reducer
    * @param {function|[function]} options.promise 获取数据的 fetch 函数
-   * @param {string} [options.key] 数据绑定到 store 用的 key 值，默认为当前页面 URL
-   * @param {function} [options.defer=false] 是否延迟加载。只在浏览器端渲染时加载，服务
-   * 器端渲染时不加载，以达到加载页面显示的目的。`defer=true` 的请求只会在浏览器中以 ajax
-   * 的形式发起
    *
    * @return {Promise}
    */
   static getInitialProps(ctx) {
     // 该方法在页面服务器端渲染时会调用
     // 在服务器端动态添加 reducer
-    if (!Array.isArray(options)) {
-      options = [options];
-    }
-    const promises = options.filter(item => !item.defer).map((item) => {
-      const { reducer, promise } = item;
-      ctx.store.injectReducer(reducer);
-      return promise(ctx);
-    });
-    return Promise.all(promises);
+    const { reducer, promise } = options;
+    ctx.store.injectReducer(reducer);
+    return promise(ctx);
   }
 
   render() {
