@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.1.2...v1.2.0) (2018-08-22)
+
+
+### Features
+
+* 为 api 增加 baseUrl 参数 ([ff594e3](https://github.com/dacejs/dace-plugin-redux/commit/ff594e3))
+* 增加数据mock功能 ([6e90bcb](https://github.com/dacejs/dace-plugin-redux/commit/6e90bcb))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/dacejs/dace-plugin-redux/compare/v1.1.1...v1.1.2) (2018-08-21)
 
