@@ -10,11 +10,11 @@ import mergeable from 'redux-merge-reducers';
  * @return {store}
  */
 export default () => {
-  // const baseURL = isClient ? '/api' : ApiUrl;
+  const baseURL = process.env.DACE_API_BASE_URL;
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
   const axiosInstance = axios.create({
-    // baseURL
+    baseURL
     // headers: { cookie: req.get('cookie') || '' }
   });
 
