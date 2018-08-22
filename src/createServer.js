@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { document } from 'dace';
 import RedBox from 'dace/dist/core/components/RedBox';
+import urlrewrite from 'packing-urlrewrite';
 import routes from './daceRoutes';
 import createStore from './createStore';
 
@@ -15,6 +16,7 @@ const server = express();
 server
   .disable('x-powered-by')
   .use(express.static(process.env.DACE_BUILD_PATH))
+  .use(urlrewrite(require(process.env.DACE_MOCK_RULES_CONFIG)))
   .get('*', async (req, res) => {
     const store = createStore();
     // 查找当前 URL 匹配的路由
