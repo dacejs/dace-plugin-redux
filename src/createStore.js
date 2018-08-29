@@ -18,12 +18,15 @@ export default () => {
     // headers: { cookie: req.get('cookie') || '' }
   });
 
+  const middlewares = [thunk.withExtraArgument(axiosInstance)]
+    .concat(require('./reduxMiddlewares'));
+
   // 初始化使用的默认 reducer
   const initialReducer = (state = {}) => state;
   const store = createStore(
     initialReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(thunk.withExtraArgument(axiosInstance)))
+    composeWithDevTools(applyMiddleware(...middlewares))
   );
 
   // 保存已经存在于 store 中的 reducer ，以便于后续 replaceReducer 时使用

@@ -9,7 +9,8 @@ const updateEntry = (entries, oldFile, newFile) => {
 }
 
 module.exports = {
-  modify(config, { target }, webpackInstance, { paths }) {
+  modify(config, { target }, webpackInstance, options) {
+    const { paths, middlewares = [] } = options;
     const appConfig = config;
 
     // 修改开发环境下浏览器端编译输出文件的名称
@@ -26,6 +27,12 @@ module.exports = {
       entry = appConfig.entry.client;
     }
     appConfig.entry = updateEntry(entry, oldFile, path.resolve(__dirname, newFile));
+
+    appConfig.module.rules.unshift({
+      test: require.resolve('./reduxMiddlewares'),
+      loader: path.resolve(__dirname, 'loader.js'),
+      options: { middlewares }
+    });
 
     // 从 dace-plugin-redux 中读取 App.js
     appConfig.resolve.alias = {
