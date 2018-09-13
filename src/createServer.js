@@ -9,7 +9,7 @@ import serialize from 'serialize-javascript';
 import { document } from 'dace';
 import RedBox from 'dace/dist/core/components/RedBox';
 import urlrewrite from 'packing-urlrewrite';
-import routes from './daceRoutes';
+import routes from './routes';
 import createStore from './createStore';
 
 // 防止 rules 配置文件不存在时报错

@@ -3,7 +3,7 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
-import routes from './daceRoutes';
+import routes from './routes';
 import createStore from './createStore';
 
 const store = createStore();
