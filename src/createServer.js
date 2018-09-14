@@ -6,6 +6,7 @@ import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
+import { getLoadableState } from 'loadable-components/server';
 import { document } from 'dace';
 import RedBox from 'dace/dist/core/components/RedBox';
 import urlrewrite from 'packing-urlrewrite';
@@ -29,11 +30,23 @@ server
     const store = createStore();
     // 查找当前 URL 匹配的路由
     const { query, _parsedUrl: { pathname } } = req;
-    const promises = matchRoutes(routes, pathname)
-      .map(({ route, match }) => {
-        const ctx = { match, store, query, req, res };
-        const { getInitialProps } = route.component;
-        return getInitialProps ? getInitialProps(ctx) : null;
+
+    const promises = matchRoutes(routes, pathname) // <- react-router 不匹配 querystring
+      .map(async ({ route, match }) => {
+        const { component } = route;
+        if (component) {
+          if (component.load && !component.loadingPromise) {
+            // 预加载 loadable-component
+            // 确保服务器端第一次渲染时能拿到数据
+            await component.load();
+          }
+          if (component.getInitialProps) {
+            const ctx = { match, store, query, req, res };
+            const { getInitialProps } = component;
+            return getInitialProps ? getInitialProps(ctx) : null;
+          }
+        }
+        return null;
       })
       .filter(Boolean);
 
@@ -79,6 +92,8 @@ server
       </Provider>
     );
 
+    const loadableState = await getLoadableState(Markup);
+
     let markup;
     try {
       markup = renderToString(Markup);
@@ -95,7 +110,14 @@ server
     if (context.url) {
       res.redirect(context.url);
     } else {
-      const html = document({ head, cssTags, jsTags, markup, state });
+      const html = document({
+        head,
+        cssTags,
+        jsTags,
+        markup,
+        state,
+        loadableState: loadableState.getScriptTag()
+      });
       res.status(200).send(html);
     }
   });

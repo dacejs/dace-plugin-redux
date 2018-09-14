@@ -1,22 +1,25 @@
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import React from 'react';
 import { hydrate } from 'react-dom';
+import { loadComponents } from 'loadable-components';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import routes from './routes';
 import createStore from './createStore';
 
 const store = createStore();
-const mountNode = document.getElementById('root');
 
-hydrate(
-  <Provider store={store}>
-    <BrowserRouter>
-      {renderRoutes(routes, { store })}
-    </BrowserRouter>
-  </Provider>,
-  mountNode
-);
+// 在渲染前加载好所需要的组件
+loadComponents().then(() => {
+  hydrate(
+    <Provider store={store}>
+      <BrowserRouter>
+        {renderRoutes(routes, { store })}
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+  );
+});
 
 if (module.hot) {
   module.hot.accept();
