@@ -3,10 +3,10 @@ import { StaticRouter } from 'react-router-dom';
 import { matchRoutes, renderRoutes } from 'react-router-config';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
+import { getLoadableState } from 'loadable-components/server';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
-import { getLoadableState } from 'loadable-components/server';
 import { document } from 'dace';
 import RedBox from 'dace/dist/core/components/RedBox';
 import urlrewrite from 'packing-urlrewrite';
@@ -61,7 +61,10 @@ server
     const initialAssets = chunks
       .filter((item) => {
         const routeName = req.url.substring(1) || 'home';
-        return item.initial || item.names[0] === routeName;
+        const routeNameWithIndex = routeName ? 'index' : `${routeName}/index`;
+        // 将 vendor.js、styles.css、路由对应的.js 直接输出到 HTML 中
+        return item.initial ||
+          [routeName, routeNameWithIndex, 'styles'].indexOf(item.names[0]) > -1;
       })
       .reduce((accumulator, item) => {
         accumulator = accumulator.concat(item.files);
@@ -75,6 +78,7 @@ server
 
       return assets
         .filter(item => !/\.hot-update\./.test(item)) // 过滤掉 HMR 包
+        // .filter(item => !/styles.[^.]{8}.chunk.js/.test(item)) // 过滤掉 styles.js
         .filter(item => item.endsWith(extension))
         .map(item => getTagByFilename(item))
         .join('');
