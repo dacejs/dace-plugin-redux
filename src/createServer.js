@@ -73,7 +73,7 @@ server
 
     const renderTags = (extension, assets) => {
       const getTagByFilename = filename => (filename.endsWith('js') ?
-        `<script src="${publicPath + filename}"></script>` :
+        `<script src="${publicPath + filename}" crossorigin="anonymous"></script>` :
         `<link rel="stylesheet" href="${publicPath + filename}" />`);
 
       return assets
