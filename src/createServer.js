@@ -27,7 +27,7 @@ server
   .use(express.static(process.env.DACE_BUILD_PATH))
   .use(urlrewrite(rules))
   .get('*', async (req, res) => {
-    const store = createStore();
+    const store = createStore(req);
     // 查找当前 URL 匹配的路由
     const { query, _parsedUrl: { pathname } } = req;
 

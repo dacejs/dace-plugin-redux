@@ -9,13 +9,15 @@ import mergeable from 'redux-merge-reducers';
  *
  * @return {store}
  */
-export default () => {
+export default (req) => {
   const baseURL = process.env.DACE_API_BASE_URL;
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
+  const cookie = isClient ? document.cookie : req.headers.cookie;
+  const headers = cookie ? { cookie } : {};
   const axiosInstance = axios.create({
-    baseURL
-    // headers: { cookie: req.get('cookie') || '' }
+    baseURL,
+    headers
   });
 
   const middlewares = [thunk.withExtraArgument(axiosInstance)]
