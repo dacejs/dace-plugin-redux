@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.1"></a>
+## [1.6.1](https://github.com/dacejs/dace-plugin-redux/compare/v1.6.0...v1.6.1) (2018-10-22)
+
+
+### Bug Fixes
+
+* withCredentials = true ([11c119b](https://github.com/dacejs/dace-plugin-redux/commit/11c119b))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.5.3...v1.6.0) (2018-10-22)
 
