@@ -17,7 +17,8 @@ export default (req) => {
   const headers = cookie ? { cookie } : {};
   const axiosInstance = axios.create({
     baseURL,
-    headers
+    headers,
+    withCredentials: true // 允许携带cookie
   });
 
   const middlewares = [thunk.withExtraArgument(axiosInstance)]
