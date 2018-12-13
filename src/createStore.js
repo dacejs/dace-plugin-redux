@@ -13,8 +13,19 @@ export default (req) => {
   const baseURL = process.env.DACE_API_BASE_URL;
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
-  const cookie = isClient ? document.cookie : req.headers.cookie;
-  const headers = cookie ? { cookie } : {};
+  let headers = {};
+  if (isClient) {
+    headers = {
+      cookie: document.cookie || ''
+    };
+  } else {
+    // 服务器请求 API 时，请求需要带上原始请求的 headers
+    headers = {
+      ...req.headers,
+      'X-Real-IP': (req.ip || '').split(',')[0]
+    };
+  }
+
   const axiosInstance = axios.create({
     baseURL,
     headers,

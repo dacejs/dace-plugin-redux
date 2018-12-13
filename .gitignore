@@ -1,3 +1,4 @@
 node_modules/
 dist/
-example/prd
+prd/
+test/package-lock.json

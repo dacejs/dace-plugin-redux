@@ -6,7 +6,7 @@ const updateEntry = (entries, oldFile, newFile) => {
     entries[index] = newFile;
   }
   return entries;
-}
+};
 
 module.exports = {
   modify(config, { target }, webpackInstance, options) {
@@ -20,7 +20,7 @@ module.exports = {
     if (target === 'node') {
       oldFile = paths.ownServerIndexJs;
       newFile = 'server.js';
-      entry = appConfig.entry;
+      entry = appConfig.entry; // eslint-disable-line
     } else {
       oldFile = paths.ownClientIndexJs;
       newFile = 'client.js';
