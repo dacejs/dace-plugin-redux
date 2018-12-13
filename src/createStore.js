@@ -19,7 +19,7 @@ export default (req) => {
       cookie: document.cookie || ''
     };
   } else {
-    // 服务器请求 API 时，请求需要带上原始请求的 headers
+    // 服务器端请求 API 时，透传原始请求的 headers
     headers = {
       ...req.headers,
       'X-Real-IP': (req.ip || '').split(',')[0]
