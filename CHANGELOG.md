@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.1"></a>
+## [1.7.1](https://github.com/dacejs/dace-plugin-redux/compare/v1.7.0...v1.7.1) (2018-12-20)
+
+
+### Bug Fixes
+
+* 修复浏览器运行时 req 不存在的问题 ([bcbf17e](https://github.com/dacejs/dace-plugin-redux/commit/bcbf17e))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.6.2...v1.7.0) (2018-12-20)
 
