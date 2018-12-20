@@ -10,7 +10,11 @@ import mergeable from 'redux-merge-reducers';
  * @return {store}
  */
 export default (req) => {
-  const baseURL = process.env.DACE_API_BASE_URL;
+  let baseURL = process.env.DACE_API_BASE_URL;
+  // 不传 DACE_API_BASE_URL 时使用当前域名
+  if (!baseURL) {
+    baseURL = `${req.protocol}://${req.headers.host}`;
+  }
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
   let headers = {};
