@@ -73,6 +73,9 @@ getInitialProps 接收的上下文对象中除了[默认参数](api/get-initial-
 
 - reducer：和页面 action 相关的 reducer 。
 - promise：需要绑定到静态方法 `getInitialProps` 的内容。
+  - promise.store：页面的 store 对象。
+    - promise.store.api：store 对象除了 `dispatch()` 和 `getState()` 等常用方法外，还会增加 `api` ，它是一个  `axios` 实例，axios.baseURL 取环境变量中的 `DACE_API_BASE_URL`，当 `DACE_API_BASE_URL` 为空时，axios.baseURL 取当前域名。
+  - promise.query：网址中的 query string。
 
 ```js
 import React, { Component } from 'react';
