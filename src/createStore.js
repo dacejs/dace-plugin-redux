@@ -55,7 +55,16 @@ export default (req) => {
     // 这里不使用 combineReducer
     // 因为 combineReducer 需要一开始就把 store 的形状确定好（MUST be a shaped store）
     // 而实际上我们希望页面初始时什么都没有，所有资源都是懒加载
-    const mergedReducer = mergeable(newReducer).merge(store.reducers);
+
+    // 支持批量注入 reducers #3
+    let mergedReducer = store.reducers;
+    if (!Array.isArray(newReducer)) {
+      newReducer = [newReducer];
+    }
+
+    newReducer.forEach((reducer) => {
+      mergedReducer = mergeable(reducer).merge(mergedReducer);
+    });
     store.replaceReducer(mergedReducer);
     store.reducers = mergedReducer;
     return store;
