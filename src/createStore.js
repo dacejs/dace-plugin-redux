@@ -50,7 +50,7 @@ export default (req) => {
   // 保存已经存在于 store 中的 reducer ，以便于后续 replaceReducer 时使用
   store.reducers = initialReducer;
   // 记录已经注入的 reducer ，避免重复注入
-  store.injectedReducers = [];
+  store.asyncReducers = [];
   store.injectReducer = (newReducer) => {
     // 将新增的 reducer 和已经存在的 reducer 合并
     // 注意：
@@ -66,10 +66,10 @@ export default (req) => {
 
     newReducer.forEach((reducer) => {
       const reducerToString = reducer.toString();
-      if (store.injectedReducers.indexOf(reducerToString) === -1) {
+      if (store.asyncReducers.indexOf(reducerToString) === -1) {
         mergedReducer = mergeable(reducer).merge(mergedReducer);
         // 存储序列化的 reducer
-        store.injectedReducers.push(reducerToString);
+        store.asyncReducers.push(reducerToString);
       }
     });
     store.replaceReducer(mergedReducer);
