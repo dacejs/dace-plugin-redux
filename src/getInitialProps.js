@@ -27,7 +27,12 @@ export default options => Target => class extends Component {
     // 在浏览器端动态添加reducer
     const { store, match, location: { query } } = this.props;
     const { reducer, promise } = options;
-    store.injectReducer(reducer);
+    if (!promise) {
+      throw new Error('getInitialProps must pass in an object containing the key `promise`');
+    }
+    if (reducer) {
+      store.injectReducer(reducer);
+    }
     await promise({ store, match, query });
   }
 
@@ -45,7 +50,12 @@ export default options => Target => class extends Component {
     // 该方法在页面服务器端渲染时会调用
     // 在服务器端动态添加 reducer
     const { reducer, promise } = options;
-    ctx.store.injectReducer(reducer);
+    if (!promise) {
+      throw new Error('getInitialProps must pass in an object containing the key `promise`');
+    }
+    if (reducer) {
+      ctx.store.injectReducer(reducer);
+    }
     return promise(ctx);
   }
 
