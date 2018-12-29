@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.1"></a>
+## [1.8.1](https://github.com/dacejs/dace-plugin-redux/compare/v1.8.0...v1.8.1) (2018-12-29)
+
+
+### Bug Fixes
+
+* 修复页面回退时重复注入 reducer 的问题 [#4](https://github.com/dacejs/dace-plugin-redux/issues/4) ([4137829](https://github.com/dacejs/dace-plugin-redux/commit/4137829))
+
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.7.1...v1.8.0) (2018-12-26)
 
