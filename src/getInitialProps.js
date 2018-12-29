@@ -1,6 +1,6 @@
 /* eslint react/no-did-mount-set-state: 0 */
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * 页面组件渲染前获取数据的装饰器
@@ -13,10 +13,11 @@ import React, { Component } from 'react';
  * @param {function|[function]} options.promise
  */
 export default options => Target => class extends Component {
-  // static propTypes = {
-  //   store: PropTypes.object.isRequired,
-  //   match: PropTypes.object.isRequired
-  // };
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired
+  };
 
   constructor(props) {
     super(props, Target);
