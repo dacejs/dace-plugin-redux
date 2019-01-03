@@ -18,11 +18,7 @@ export default (req) => {
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
   let headers = {};
-  if (isClient) {
-    headers = {
-      cookie: document.cookie || ''
-    };
-  } else {
+  if (!isClient) {
     // 服务器端请求 API 时，透传原始请求的 headers
     headers = {
       ...req.headers,
