@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.8.2...v1.9.0) (2019-01-07)
+
+
+### Features
+
+* entry.client 改为 entry。 BREAKING CHANGE: 需要 `dace@>1.6.0` ([565aec2](https://github.com/dacejs/dace-plugin-redux/commit/565aec2))
+
+
+
 <a name="1.8.2"></a>
 ## [1.8.2](https://github.com/dacejs/dace-plugin-redux/compare/v1.8.1...v1.8.2) (2019-01-03)
 
