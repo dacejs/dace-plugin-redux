@@ -16,17 +16,14 @@ module.exports = {
     // 修改开发环境下浏览器端编译输出文件的名称
     let oldFile;
     let newFile;
-    let entry;
     if (target === 'node') {
       oldFile = paths.ownServerIndexJs;
       newFile = 'server.js';
-      entry = appConfig.entry; // eslint-disable-line
     } else {
       oldFile = paths.ownClientIndexJs;
       newFile = 'client.js';
-      entry = appConfig.entry.client;
     }
-    appConfig.entry = updateEntry(entry, oldFile, path.resolve(__dirname, newFile));
+    appConfig.entry = updateEntry(appConfig.entry, oldFile, path.resolve(__dirname, newFile));
 
     appConfig.module.rules.unshift({
       test: require.resolve('./reduxMiddlewares'),
