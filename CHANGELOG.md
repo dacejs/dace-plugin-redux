@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.9.0...v1.10.0) (2019-01-11)
+
+
+### Bug Fixes
+
+* [#6](https://github.com/dacejs/dace-plugin-redux/issues/6) 修复设置router.js时页面不能正常插入css文件的问题 ([28b7263](https://github.com/dacejs/dace-plugin-redux/commit/28b7263))
+
+
+### Features
+
+* 对外暴露 axios 实例 ([4e2ef9d](https://github.com/dacejs/dace-plugin-redux/commit/4e2ef9d))
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.8.2...v1.9.0) (2019-01-07)
 
