@@ -13,9 +13,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "babel-preset-dace": "latest",
-    "dace": "latest",
+    "babel-preset-env": "^1.7.0",
+    "dace": "^2.0.0-alpha.6",
     "dace-plugin-redux": "latest"
   }
 }

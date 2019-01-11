@@ -77,7 +77,9 @@ server
 
     if (currentPage) {
       const [page] = chunks.filter(chunk => !chunk.initial && chunk.names[0] === currentPage);
-      files = files.concat(page.files);
+      if (page && page.files) {
+        files = files.concat(page.files);
+      }
     }
 
     const renderTags = (extension, assets) => {

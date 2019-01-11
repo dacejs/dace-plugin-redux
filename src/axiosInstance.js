@@ -23,5 +23,4 @@ export default (req) => {
     headers,
     withCredentials: true // 允许携带cookie
   });
-
 };
