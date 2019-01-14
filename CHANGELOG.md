@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.11.0"></a>
+# [1.11.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.10.0...v1.11.0) (2019-01-14)
+
+
+### Features
+
+* 增加 `DACE_AXIOS_INSTANCE_PATH` 参数 ([8620e5f](https://github.com/dacejs/dace-plugin-redux/commit/8620e5f))
+
+
+
 <a name="1.10.0"></a>
 # [1.10.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.9.0...v1.10.0) (2019-01-11)
 
