@@ -28,6 +28,10 @@ module.exports = {
 ### 使用封装好的 redux 中间件
 
 ```js
+// 创建 axios 实例的文件路径
+DACE_AXIOS_INSTANCE_PATH: 'src/axios.js',
+
+// 加上 dace-plugin-redux
 plugins: [
   ['redux', {
     middlewares: [ `require('redux-logger').default` ]

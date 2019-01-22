@@ -24,28 +24,3 @@ loadComponents().then(() => {
 if (module.hot) {
   module.hot.accept();
 }
-
-// if (process.env.NODE_ENV !== 'production') {
-//   // 为了调试方便
-//   window.React = React;
-//
-//   if (module.hot) {
-//     module.hot.accept('./components/App', () => {
-//       console.log('--accept: /components/App');
-//       hydrate(
-//         <Provider store={store}>
-//           <BrowserRouter>
-//             {renderRoutes(routes, { store })}
-//           </BrowserRouter>
-//         </Provider>,
-//         mountNode
-//       );
-//       // hydrate(
-//       //   <Provider store={store}>
-//       //     <App />
-//       //   </Provider>,
-//       //   document.getElementById('root')
-//       // );
-//     });
-//   }
-// }
