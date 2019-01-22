@@ -14,14 +14,14 @@ module.exports = {
     const appConfig = config;
 
     // 修改 entry 文件
-    const { DACE_PATH_CLIENT_ENTRY, DACE_PATH_SERVER_ENTRY } = process.env;
+    // 如果使用的是 dace 默认的入口文件，修改之
     let oldFile;
     let newFile;
     if (target === 'node') {
-      oldFile = DACE_PATH_SERVER_ENTRY;
+      oldFile = require.resolve('dace/dist/runtime/server.js');
       newFile = 'server.js';
     } else {
-      oldFile = DACE_PATH_CLIENT_ENTRY;
+      oldFile = require.resolve('dace/dist/runtime/client.js');
       newFile = 'client.js';
     }
     appConfig.entry = updateEntry(appConfig.entry, oldFile, path.resolve(__dirname, newFile));
@@ -38,6 +38,7 @@ module.exports = {
       ...appConfig.resolve.alias,
       [require.resolve('dace/dist/runtime/components/App.js')]: path.resolve(__dirname, 'App.js')
     };
+    
     return appConfig;
   }
 };
