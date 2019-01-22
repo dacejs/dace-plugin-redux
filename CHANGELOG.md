@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0-alpha.0"></a>
+# [2.0.0-alpha.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.11.0...v2.0.0-alpha.0) (2019-01-22)
+
+
+### Features
+
+* 使用新的配置参数名称 ([28ad5f1](https://github.com/dacejs/dace-plugin-redux/commit/28ad5f1))
+* 更新script插入方式 ([8483cc0](https://github.com/dacejs/dace-plugin-redux/commit/8483cc0))
+
+
+
 <a name="1.11.0"></a>
 # [1.11.0](https://github.com/dacejs/dace-plugin-redux/compare/v1.10.0...v1.11.0) (2019-01-14)
 
