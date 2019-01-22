@@ -17,7 +17,7 @@ export default (req) => {
 
   try {
     // 如果传入已有的 axios 实例，修改之
-    axiosInstance = require(process.env.DACE_AXIOS_INSTANCE_PATH);
+    axiosInstance = require(process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE);
     if (axiosInstance.default) {
       axiosInstance = axiosInstance.default;
     }
