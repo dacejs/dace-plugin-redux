@@ -1,2 +1,1 @@
-export { default } from './plugin';
-export { default as getInitialProps } from './getInitialProps';
+export { default as getInitialProps } from './runtime/getInitialProps';

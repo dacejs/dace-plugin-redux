@@ -9,7 +9,8 @@
     "build:watch": "npm run build -- --watch",
     "postrelease": "git push && git push origin --tags",
     "prepare": "npm run build",
-    "release": "standard-version && npm publish"
+    "release": "standard-version && npm publish",
+    "release:alpha": "standard-version --prerelease alpha && npm publish --tag=next"
   },
   "repository": {
     "type": "git",

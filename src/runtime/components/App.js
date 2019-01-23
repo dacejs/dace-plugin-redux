@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-const { parse } = require('qs');
+import { parse } from 'qs';
 
 /**
  * 网站入口组件

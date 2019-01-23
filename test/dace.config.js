@@ -1,6 +1,6 @@
 module.exports = {
   // 创建 axios 实例的文件路径
-  DACE_AXIOS_INSTANCE_PATH: 'src/axios.js',
+  // DACE_AXIOS_INSTANCE_PATH: 'src/axios.js',
 
   // 加上 dace-plugin-redux
   plugins: ['redux'],

@@ -2,7 +2,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import mergeable from 'redux-merge-reducers';
-import axios from 'axios';
 
 /**
  * 创建 store
@@ -12,19 +11,7 @@ import axios from 'axios';
 export default (req) => {
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
-
-  let axiosInstance;
-
-  try {
-    // 如果传入已有的 axios 实例，修改之
-    axiosInstance = require(process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE);
-    if (axiosInstance.default) {
-      axiosInstance = axiosInstance.default;
-    }
-  } catch (e) {
-    // 否则新建一个 axios 实例
-    axiosInstance = axios.create();
-  }
+  const axiosInstance = require(process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE);
 
   let baseURL = process.env.DACE_API_BASE_URL;
   // 不传 DACE_API_BASE_URL 时使用当前域名

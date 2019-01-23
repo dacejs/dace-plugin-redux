@@ -79,7 +79,7 @@ server
       // 只包含一个页面时不会拆分打包，所有文件会打到 main.js 里
       if (page && page.files) {
         // 只需在 HTML 中插入 css ，js 会通过异步加载，此次无需显式插入
-        files = files.filter(file => file.endsWith('.css')).concat(page.files);
+        files = files.concat(page.files.filter(file => file.endsWith('.css')));
       }
     }
 
