@@ -25,28 +25,31 @@ server
     const store = createStore(req);
     // 查找当前 URL 匹配的路由
     const { query, _parsedUrl: { pathname } } = req;
+    const ssr = process.env.DACE_SSR === 'true';
 
-    const promises = matchRoutes(routes, pathname) // <- react-router 不匹配 querystring
-      .map(async ({ route, match }) => {
-        const { component } = route;
-        if (component) {
-          if (component.load && !component.loadingPromise) {
-            // 预加载 loadable-component
-            // 确保服务器端第一次渲染时能拿到数据
-            await component.load();
+    if (ssr) {
+      const promises = matchRoutes(routes, pathname) // <- react-router 不匹配 querystring
+        .map(async ({ route, match }) => {
+          const { component } = route;
+          if (component) {
+            if (component.load && !component.loadingPromise) {
+              // 预加载 loadable-component
+              // 确保服务器端第一次渲染时能拿到数据
+              await component.load();
+            }
+            if (component.getInitialProps) {
+              const ctx = { match, store, query, req, res };
+              const { getInitialProps } = component;
+              return getInitialProps ? getInitialProps(ctx) : null;
+            }
           }
-          if (component.getInitialProps) {
-            const ctx = { match, store, query, req, res };
-            const { getInitialProps } = component;
-            return getInitialProps ? getInitialProps(ctx) : null;
-          }
-        }
-        return null;
-      })
-      .filter(Boolean);
+          return null;
+        })
+        .filter(Boolean);
 
-    // 执行 getInitialProps ，在此之后的 store 中将包含数据
-    await Promise.all(promises);
+      // 执行 getInitialProps ，在此之后的 store 中将包含数据
+      await Promise.all(promises);
+    }
 
     if (!process.env.DACE_PATH_STATS_JSON) {
       throw new Error('Not found `DACE_PATH_STATS_JSON` in `process.env`');
@@ -99,13 +102,13 @@ server
     const cssTags = renderTags('css', files);
 
     const context = {};
-    const Markup = (
+    const Markup = ssr ? (
       <Provider store={store}>
         <StaticRouter context={context} location={req.url}>
           {renderRoutes(routes, { store })}
         </StaticRouter>
       </Provider>
-    );
+    ) : null;
 
     const loadableState = await getLoadableState(Markup);
 
@@ -119,7 +122,18 @@ server
     }
 
     // renderStatic 需要在 root 元素 render 后执行
-    const head = Helmet.renderStatic();
+    // 禁用服务器端渲染时，head meta 也不渲染
+    const head = ssr ?
+      Helmet.renderStatic() : {
+        htmlAttributes: { toString: () => '' },
+        title: { toString: () => '' },
+        meta: { toString: () => '' },
+        link: { toString: () => '' },
+        style: { toString: () => '' },
+        script: { toString: () => '' },
+        noscript: { toString: () => '' },
+        bodyAttributes: { toString: () => '' }
+      };
     const state = serialize(store.getState());
 
     if (context.url) {
