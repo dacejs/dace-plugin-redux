@@ -34,12 +34,12 @@ module.exports = {
     });
 
     // 注入插件所需的环境变量
-    if (!process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE) {
+    if (!process.env.DACE_PATH_AXIOS_INSTANCE) {
       const axiosInstance = path.resolve(__dirname, 'runtime/axiosInstance');
       appConfig.plugins = [
         ...appConfig.plugins,
         new webpackInstance.DefinePlugin({
-          'process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE': JSON.stringify(axiosInstance)
+          'process.env.DACE_PATH_AXIOS_INSTANCE': JSON.stringify(axiosInstance)
         })
       ];
     }

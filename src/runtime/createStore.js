@@ -11,11 +11,11 @@ import mergeable from 'redux-merge-reducers';
 export default (req) => {
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
-  const axiosInstance = require(process.env.DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE);
+  const axiosInstance = require(process.env.DACE_PATH_AXIOS_INSTANCE);
 
-  let baseURL = process.env.DACE_API_BASE_URL;
+  // let baseURL = process.env.DACE_API_BASE_URL;
   // 不传 DACE_API_BASE_URL 时使用当前域名
-  if (req && !baseURL) {
+  if (req) {
     baseURL = `${req.protocol}://${req.headers.host}`;
   }
 
