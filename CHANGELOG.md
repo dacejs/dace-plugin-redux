@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0-alpha.2"></a>
+# [2.0.0-alpha.2](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2019-01-28)
+
+
+### Features
+
+* 增加404页面的支持 ([10a2d31](https://github.com/dacejs/dace-plugin-redux/commit/10a2d31))
+* 支持是否启用服务器端渲染开关 `DACE_SSR` ([26ba641](https://github.com/dacejs/dace-plugin-redux/commit/26ba641))
+* 新增请求转发功能 ([8aa7187](https://github.com/dacejs/dace-plugin-redux/commit/8aa7187))
+* 重命名配置参数名称 `DACE_PATH_PLUGIN_REDUX_AXIOS_INSTANCE` -> `DACE_PATH_AXIOS_INSTANCE` ([a4ca845](https://github.com/dacejs/dace-plugin-redux/commit/a4ca845))
+
+
+
 <a name="2.0.0-alpha.1"></a>
 # [2.0.0-alpha.1](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2019-01-23)
 
