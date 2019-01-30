@@ -17,6 +17,7 @@
     "url": "git+https://github.com/dacejs/dace-plugin-redux.git"
   },
   "files": [
+    "plugin.js",
     "dist"
   ],
   "license": "ISC",
