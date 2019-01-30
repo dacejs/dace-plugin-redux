@@ -19,7 +19,7 @@ import createStore from './createStore';
 const server = express();
 
 // 绑定请求代理
-addProxyTable(server);
+addProxy(server);
 
 // 挂载虚拟目录
 addStatic(server);
