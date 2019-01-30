@@ -11,7 +11,7 @@ import { document } from 'dace';
 import { RedBoxError } from 'redbox-react';
 import NotFound from 'dace/dist/runtime/components/NotFound';
 import renderTags from 'dace/dist/runtime/utils/renderTags';
-import addProxyTable from 'dace/dist/runtime/utils/addProxyTable';
+import addProxy from 'dace/dist/runtime/utils/addProxy';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
 import routes from './routes';
 import createStore from './createStore';
