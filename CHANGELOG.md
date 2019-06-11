@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.0-alpha.7...v2.0.0) (2019-06-11)
+
+
+### Features
+
+* 升级 loadable-components ，用 [@loadable](https://github.com/loadable)/component 代替 ([1ca1ea0](https://github.com/dacejs/dace-plugin-redux/commit/1ca1ea0))
+
+
+
 <a name="2.0.0-alpha.7"></a>
 # [2.0.0-alpha.7](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2019-01-30)
 
