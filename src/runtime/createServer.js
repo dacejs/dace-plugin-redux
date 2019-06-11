@@ -67,7 +67,6 @@ server
         await Promise.all(promises);
       }
 
-      // const jsTags = renderTags(branch, 'js');
       const cssTags = renderTags(branch, 'css');
 
       const context = {};
@@ -102,9 +101,9 @@ server
       const html = document({
         head,
         cssTags,
-        jsTags,
         markup,
-        state
+        state,
+        scriptTags
       });
       res.status(200).send(html);
     }
