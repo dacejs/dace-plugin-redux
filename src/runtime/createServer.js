@@ -11,7 +11,6 @@ import serialize from 'serialize-javascript';
 import { document } from 'dace';
 import { RedBoxError } from 'redbox-react';
 import NotFound from 'dace/dist/runtime/components/NotFound';
-import renderTags from 'dace/dist/runtime/utils/renderTags';
 import addProxy from 'dace/dist/runtime/utils/addProxy';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
 import routes from './routes';
@@ -67,8 +66,6 @@ server
         await Promise.all(promises);
       }
 
-      const cssTags = renderTags(branch, 'css');
-
       const context = {};
       const Markup = ssr ? (
         <Provider store={store}>
@@ -87,9 +84,11 @@ server
 
       let markup;
       let scriptTags;
+      let styleTags;
       try {
         markup = renderToString(jsx);
         scriptTags = extractor.getScriptTags();
+        styleTags = extractor.getStyleTags();
       } catch (error) {
         res.status(500);
         markup = renderToString(<RedBoxError error={error} />);
@@ -100,9 +99,9 @@ server
       const state = serialize(store.getState());
       const html = document({
         head,
-        cssTags,
         markup,
         state,
+        styleTags,
         scriptTags
       });
       res.status(200).send(html);
