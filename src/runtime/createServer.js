@@ -52,7 +52,7 @@ server
               const AsyncComponent = (await component.load()).default;
 
               if (AsyncComponent.getInitialProps) {
-                const ctx = { match, query, req, res };
+                const ctx = { match, store, query, req, res };
                 const props = await AsyncComponent.getInitialProps(ctx);
                 return props;
               }
