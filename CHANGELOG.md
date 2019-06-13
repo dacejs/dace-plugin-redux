@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.8...v2.1.0) (2019-06-13)
+
+
+### Features
+
+* 升级 react-redux@^7.1.0 ([d3f31d7](https://github.com/dacejs/dace-plugin-redux/commit/d3f31d7))
+
+
+
 <a name="2.0.8"></a>
 ## [2.0.8](https://github.com/dacejs/dace-plugin-redux/compare/v2.0.7...v2.0.8) (2019-06-12)
 
