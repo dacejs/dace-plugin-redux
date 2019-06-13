@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "copy2test": "npm run build && cp -R dist test/node_modules/dace-plugin-redux",
-    "build": "rm -rf dist && NODE_ENV=local babel src -d dist --presets=env,dace",
+    "build": "rm -rf dist && NODE_ENV=local babel src -d dist --presets=dace",
     "build:watch": "npm run build -- --watch",
     "postrelease": "git push && git push origin --tags",
     "prepare": "npm run build",
@@ -28,14 +28,14 @@
   "dependencies": {
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.7",
+    "redux-devtools-extension": "^2.13.8",
     "redux-merge-reducers": "0.0.2",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-dace": "1.0.7",
-    "dace": "latest"
+    "@babel/cli": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-preset-dace": "^2.1.0",
+    "dace": "^2.2.1"
   }
 }
