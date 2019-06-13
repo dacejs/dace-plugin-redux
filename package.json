@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/dacejs/dace-plugin-redux#readme",
   "dependencies": {
-    "react-redux": "^5.0.7",
+    "react-redux": "^7.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-merge-reducers": "0.0.2",
