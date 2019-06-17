@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.4"></a>
+## [2.1.4](https://github.com/dacejs/dace-plugin-redux/compare/v2.1.3...v2.1.4) (2019-06-17)
+
+
+### Bug Fixes
+
+* 使用 stats 代替 statsFile ([314b702](https://github.com/dacejs/dace-plugin-redux/commit/314b702))
+
+
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/dacejs/dace-plugin-redux/compare/v2.1.2...v2.1.3) (2019-06-17)
 
