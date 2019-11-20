@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/dacejs/dace-plugin-redux/compare/v2.1.5...v2.2.0) (2019-11-20)
+
+
+### Features
+
+* 增加 cookie 解析 ([df90806](https://github.com/dacejs/dace-plugin-redux/commit/df90806dfe86358fa3f9422de5d1d2e9d2a1017e))
+
 ### [2.1.5](https://github.com/dacejs/dace-plugin-redux/compare/v2.1.4...v2.1.5) (2019-11-19)
 
 <a name="2.1.4"></a>
