@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { document } from 'dace';
 import { RedBoxError } from 'redbox-react';
+import cookieParser from 'cookie-parser';
 import NotFound from 'dace/dist/runtime/components/NotFound';
 import addProxy from 'dace/dist/runtime/utils/addProxy';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
@@ -26,6 +27,8 @@ addStatic(server);
 
 server
   .disable('x-powered-by')
+  // 解析 cookie
+  .use(cookieParser())
   .get('*', async (req, res) => {
     const store = createStore(req);
     // 查找当前 URL 匹配的路由
