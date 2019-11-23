@@ -18,7 +18,7 @@ export default (req) => {
     axiosInstance.defaults.headers = {
       ...req.headers,
       'X-Real-IP': (req.ip || '').split(',')[0]
-    }; // 透穿headers
+    }; // 透传 headers
   }
   axiosInstance.defaults.withCredentials = true; // 允许携带cookie
 
