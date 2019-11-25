@@ -10,6 +10,7 @@
     "postrelease": "git push && git push origin --tags",
     "prepare": "npm run build",
     "release": "standard-version && npm publish",
+    "release:major": "standard-version --release-as major && npm publish",
     "release:alpha": "standard-version --prerelease alpha && npm publish --tag=next"
   },
   "repository": {
