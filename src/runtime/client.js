@@ -4,7 +4,7 @@ import { hydrate } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
-import routes from './routes';
+import routes from './ssrRoutes';
 import createStore from './createStore';
 
 const store = createStore();

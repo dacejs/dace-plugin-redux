@@ -1,3 +1,4 @@
+import { existsSync } from 'fs';
 import path from 'path';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
@@ -14,19 +15,24 @@ import cookieParser from 'cookie-parser';
 import NotFound from 'dace/dist/runtime/components/NotFound';
 import addProxy from 'dace/dist/runtime/utils/addProxy';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
-import routes from './routes';
+import routes from './ssrRoutes';
 import createStore from './createStore';
 
 const server = express();
 
-// 绑定请求代理
-addProxy(server);
+server.disable('x-powered-by');
 
 // 挂载虚拟目录
 addStatic(server);
+// 绑定请求代理
+// addProxy(server);
+
+if (process.env.DACE_PATH_ROUTES && existsSync(process.env.DACE_PATH_ROUTES)) {
+  const router = require(process.env.DACE_PATH_ROUTES);
+  server.use(router);
+}
 
 server
-  .disable('x-powered-by')
   // 解析 cookie
   .use(cookieParser())
   .get('*', async (req, res) => {
