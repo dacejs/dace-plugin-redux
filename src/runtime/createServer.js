@@ -13,7 +13,6 @@ import { document } from 'dace';
 import { RedBoxError } from 'redbox-react';
 import cookieParser from 'cookie-parser';
 import NotFound from 'dace/dist/runtime/components/NotFound';
-import addProxy from 'dace/dist/runtime/utils/addProxy';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
 import routes from './ssrRoutes';
 import createStore from './createStore';
@@ -24,8 +23,6 @@ server.disable('x-powered-by');
 
 // 挂载虚拟目录
 addStatic(server);
-// 绑定请求代理
-// addProxy(server);
 
 if (process.env.DACE_PATH_ROUTES && existsSync(process.env.DACE_PATH_ROUTES)) {
   const router = require(process.env.DACE_PATH_ROUTES);
@@ -57,28 +54,26 @@ server
       }
     } else {
       let initialProps = {};
-      if (ssr) {
-        const promises = branch // <- react-router 不匹配 querystring
-          .map(async ({ route, match }) => {
-            const { component } = route;
-            if (component && component.load && typeof component.load === 'function') {
-              // 预加载 @loadable/component
-              // 确保服务器端第一次渲染时能拿到数据
-              const AsyncComponent = (await component.load()).default;
+      const promises = branch // <- react-router 不匹配 querystring
+        .map(async ({ route, match }) => {
+          const { component } = route;
+          if (component && component.load && typeof component.load === 'function') {
+            // 预加载 @loadable/component
+            // 确保服务器端第一次渲染时能拿到数据
+            const AsyncComponent = (await component.load()).default;
 
-              if (AsyncComponent.getInitialProps) {
-                const ctx = { match, store, query, req, res };
-                const props = await AsyncComponent.getInitialProps(ctx);
-                return props;
-              }
+            if (AsyncComponent.getInitialProps) {
+              const ctx = { match, store, query, req, res };
+              const props = await AsyncComponent.getInitialProps(ctx);
+              return props;
             }
-            return null;
-          })
-          .filter(Boolean);
+          }
+          return null;
+        })
+        .filter(Boolean);
 
-        // 执行 getInitialProps ，在此之后的 store 中将包含数据
-        await Promise.all(promises);
-      }
+      // 执行 getInitialProps ，在此之后的 store 中将包含数据
+      await Promise.all(promises);
 
       const context = {};
       const Markup = ssr ? (

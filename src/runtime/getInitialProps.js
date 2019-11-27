@@ -51,13 +51,15 @@ export default options => Target => class extends Component {
     // 该方法在页面服务器端渲染时会调用
     // 在服务器端动态添加 reducer
     const { reducer, promise } = options;
+    const { DACE_SSR } = process.env;
+    const ssr = DACE_SSR === 'true';
     if (!promise) {
       throw new Error('getInitialProps must pass in an object containing the key `promise`');
     }
     if (reducer) {
       ctx.store.injectReducer(reducer);
     }
-    return promise(ctx);
+    return ssr ? promise(ctx) : null;
   }
 
   render() {
