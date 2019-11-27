@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.1.0...v3.1.1) (2019-11-27)
+
+
+### Bug Fixes
+
+* 修复关闭服务器端渲染时 noscript 不生效的问题 ([2836d58](https://github.com/dacejs/dace-plugin-redux/commit/2836d58c2c86e5eb345fdd6c96646e8d90704c8b))
+
 ## [3.1.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.0.0...v3.1.0) (2019-11-27)
 
 
