@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.0.0...v3.1.0) (2019-11-27)
+
+
+### Features
+
+* 支持 DACE_SSR 是否启用服务器端渲染的开关 ([01e8e4c](https://github.com/dacejs/dace-plugin-redux/commit/01e8e4cb04be81e87657a25f5dc9d2d622b04cef))
+
 ## [3.0.0](https://github.com/dacejs/dace-plugin-redux/compare/v2.2.0...v3.0.0) (2019-11-25)
 
 
