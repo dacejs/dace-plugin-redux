@@ -14,6 +14,7 @@ import { RedBoxError } from 'redbox-react';
 import cookieParser from 'cookie-parser';
 import NotFound from 'dace/dist/runtime/components/NotFound';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
+import addRoutes from 'dace/dist/runtime/utils/addRoutes';
 import routes from './ssrRoutes';
 import createStore from './createStore';
 
@@ -24,10 +25,8 @@ server.disable('x-powered-by');
 // 挂载虚拟目录
 addStatic(server);
 
-if (process.env.DACE_PATH_ROUTES && existsSync(process.env.DACE_PATH_ROUTES)) {
-  const router = require(process.env.DACE_PATH_ROUTES);
-  server.use(router);
-}
+// 挂载路由
+addRoutes(server);
 
 server
   // 解析 cookie
