@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.1.2...v3.2.0) (2019-12-03)
+
+
+### Features
+
+* 支持静态文件路由 ([9d7c253](https://github.com/dacejs/dace-plugin-redux/commit/9d7c253742d1f4a33879e19c056fcdce407f5cbf))
+
 ### [3.1.2](https://github.com/dacejs/dace-plugin-redux/compare/v3.1.1...v3.1.2) (2019-11-28)
 
 ### [3.1.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.1.0...v3.1.1) (2019-11-27)
