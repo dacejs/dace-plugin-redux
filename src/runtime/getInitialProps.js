@@ -29,7 +29,7 @@ export default options => Target => class extends Component {
     const { store, match, location: { query } } = this.props;
     const { reducer, promise } = options;
     if (!promise) {
-      throw new Error('getInitialProps must pass in an object containing the key `promise`');
+      throw new Error('getInitialProps must pass in an object containing the key "promise"');
     }
     if (reducer) {
       store.injectReducer(reducer);
@@ -54,7 +54,7 @@ export default options => Target => class extends Component {
     const { DACE_SSR } = process.env;
     const ssr = DACE_SSR === 'true';
     if (!promise) {
-      throw new Error('getInitialProps must pass in an object containing the key `promise`');
+      throw new Error('getInitialProps must pass in an object containing the key "promise"');
     }
     if (reducer) {
       ctx.store.injectReducer(reducer);
