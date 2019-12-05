@@ -11,6 +11,8 @@
     "prepare": "npm run build",
     "release": "standard-version && npm publish",
     "release:major": "standard-version --release-as major && npm publish",
+    "release:minor": "standard-version --release-as minor && npm publish",
+    "release:patch": "standard-version --release-as patch && npm publish",
     "release:alpha": "standard-version --prerelease alpha && npm publish --tag=next"
   },
   "repository": {
