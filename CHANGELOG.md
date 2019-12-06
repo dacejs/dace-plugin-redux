@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.2.1...v3.3.0) (2019-12-06)
+
+
+### Features
+
+* 将服务器端渲染代码封装成中间件 ([9988267](https://github.com/dacejs/dace-plugin-redux/commit/9988267b058b43226832abc779fdfa35af3f0839))
+
 ### [3.2.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.2.0...v3.2.1) (2019-12-04)
 
 
