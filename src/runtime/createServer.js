@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import bodyParser from 'bodyParser';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
 import addRoutes from 'dace/dist/runtime/utils/addRoutes';
 import ssrMiddleware from 'dace-plugin-redux/dist/runtime/ssrMiddleware';
@@ -12,7 +13,7 @@ server.disable('x-powered-by');
 addStatic(server);
 
 // 解析 cookie
-server.use(cookieParser());
+server.use(cookieParser()).use(bodyParser());
 
 // 挂载路由
 addRoutes(server);
