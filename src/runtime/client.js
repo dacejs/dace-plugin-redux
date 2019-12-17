@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import routes from './ssrRoutes';
 import createStore from './createStore';
 
-const store = createStore(window.INITIAL_STATE);
+const store = createStore();
 
 // 在渲染前加载好所需要的组件
 loadableReady(() => {

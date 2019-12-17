@@ -10,9 +10,9 @@ import mergeable from 'redux-merge-reducers';
  * @param {Express.Request} req
  * @return {store}
  */
-export default (initialState = {}, req) => {
-  // const isClient = typeof window === 'object';
-  // initialState = isClient ? window.INITIAL_STATE : initialState;
+export default (req) => {
+  const isClient = typeof window === 'object';
+  const initialState = isClient ? window.INITIAL_STATE : {};
   const axiosInstance = require(process.env.DACE_PATH_AXIOS_INSTANCE);
 
   if (req) {
