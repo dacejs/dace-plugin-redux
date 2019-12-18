@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.1...v3.3.2) (2019-12-18)
+
+
+### Features
+
+* 在 axios 请求头中添加 Original-Url 原始请求地址 ([f482c24](https://github.com/dacejs/dace-plugin-redux/commit/f482c249154ab2506dcef4f0efe8957b2dbc4f19))
+
 ### [3.3.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.0...v3.3.1) (2019-12-18)
 
 
