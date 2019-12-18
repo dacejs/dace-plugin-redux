@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.0...v3.3.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* 修复 req 透传 header 失效的问题 ([945c241](https://github.com/dacejs/dace-plugin-redux/commit/945c2419a2dcf9e156433153b6b3e6ad92a338a6))
+
 ## [3.3.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.2.1...v3.3.0) (2019-12-06)
 
 
