@@ -19,6 +19,7 @@ export default (req) => {
     axiosInstance.defaults.baseURL = `${req.protocol}://${req.headers.host}`;
     axiosInstance.defaults.headers = {
       ...req.headers,
+      'Original-Url': req.url,
       'X-Real-IP': (req.ip || '').split(',')[0]
     }; // 透传 headers
   }
