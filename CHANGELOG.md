@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.3](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.2...v3.3.3) (2019-12-19)
+
+
+### Bug Fixes
+
+* 修复不支持 post 请求的问题 ([603775a](https://github.com/dacejs/dace-plugin-redux/commit/603775a8152378cbc7f830a84db9c46fba87189c))
+
 ### [3.3.2](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.1...v3.3.2) (2019-12-18)
 
 
