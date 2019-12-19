@@ -18,6 +18,6 @@ server.use(cookieParser()).use(bodyParser());
 // 挂载路由
 addRoutes(server);
 
-server.get('*', ssrMiddleware);
+server.all('*', ssrMiddleware);
 
 export default server;
