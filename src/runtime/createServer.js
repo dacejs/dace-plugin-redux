@@ -1,6 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import bodyParser from 'bodyParser';
+import bodyParser from 'body-parser';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
 import addRoutes from 'dace/dist/runtime/utils/addRoutes';
 import ssrMiddleware from 'dace-plugin-redux/dist/runtime/ssrMiddleware';
