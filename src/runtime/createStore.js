@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import mergeable from 'redux-merge-reducers';
+import axiosInstance from 'dace/dist/runtime/axiosInstance';
 
 /**
  * 创建 store
@@ -13,17 +14,16 @@ import mergeable from 'redux-merge-reducers';
 export default (req) => {
   const isClient = typeof window === 'object';
   const initialState = isClient ? window.INITIAL_STATE : {};
-  const axiosInstance = require(process.env.DACE_PATH_AXIOS_INSTANCE);
 
   if (req) {
     axiosInstance.defaults.baseURL = `${req.protocol}://${req.headers.host}`;
+    // 透传 headers
     axiosInstance.defaults.headers = {
       ...req.headers,
       'Original-Url': req.url,
       'X-Real-IP': (req.ip || '').split(',')[0]
-    }; // 透传 headers
+    };
   }
-  axiosInstance.defaults.withCredentials = true; // 允许携带cookie
 
   const middlewares = [thunk.withExtraArgument(axiosInstance)]
     .concat(require('./reduxMiddlewares'));

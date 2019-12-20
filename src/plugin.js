@@ -33,17 +33,6 @@ module.exports = {
       options: { middlewares }
     });
 
-    // 注入插件所需的环境变量
-    if (!process.env.DACE_PATH_AXIOS_INSTANCE) {
-      const axiosInstance = path.resolve(__dirname, 'runtime/axiosInstance');
-      appConfig.plugins = [
-        ...appConfig.plugins,
-        new webpackInstance.DefinePlugin({
-          'process.env.DACE_PATH_AXIOS_INSTANCE': JSON.stringify(axiosInstance)
-        })
-      ];
-    }
-
     // 从 dace-plugin-redux 中读取 App.js
     appConfig.resolve.alias = {
       ...appConfig.resolve.alias,
