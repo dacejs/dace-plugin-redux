@@ -2,7 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import addStatic from 'dace/dist/runtime/utils/addStatic';
-import addRoutes from 'dace/dist/runtime/utils/addRoutes';
+import urlRewrite from 'dace/dist/runtime/utils/urlRewrite';
 import ssrMiddleware from 'dace-plugin-redux/dist/runtime/ssrMiddleware';
 
 const server = express();
@@ -15,8 +15,8 @@ addStatic(server);
 // 解析 cookie
 server.use(cookieParser()).use(bodyParser());
 
-// 挂载路由
-addRoutes(server);
+// 挂载 mock 数据路由
+urlRewrite(server);
 
 server.all('*', ssrMiddleware);
 
