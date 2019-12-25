@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.8](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.7...v3.3.8) (2019-12-25)
+
+
+### Bug Fixes
+
+* 修复addRoutes找不到的问题 ([2bce25e](https://github.com/dacejs/dace-plugin-redux/commit/2bce25e5b8140c6e9b5a509e496385c495fd61a5))
+
 ### [3.3.7](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.6...v3.3.7) (2019-12-20)
 
 ### [3.3.6](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.5...v3.3.6) (2019-12-20)
