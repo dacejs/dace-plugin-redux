@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.8...v3.4.0) (2020-01-16)
+
+
+### Features
+
+* 移除 axios 请求 header 中的 X-Real-IP ([8d7fb06](https://github.com/dacejs/dace-plugin-redux/commit/8d7fb063bd18a1cb8d608dd9c44899b1222455a2))
+
 ### [3.3.8](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.7...v3.3.8) (2019-12-25)
 
 
