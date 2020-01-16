@@ -20,8 +20,7 @@ export default (req) => {
     // 透传 headers
     axiosInstance.defaults.headers = {
       ...req.headers,
-      'Original-Url': req.url,
-      'X-Real-IP': (req.ip || '').split(',')[0]
+      'Original-Url': req.url
     };
   }
 
