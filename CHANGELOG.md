@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.4.0...v3.4.1) (2020-01-17)
+
+
+### Features
+
+* 在页面类上增加静态属性 pageName ([bb92cab](https://github.com/dacejs/dace-plugin-redux/commit/bb92cabf0854bf815d49385fb04ca837f155555d))
+
 ## [3.4.0](https://github.com/dacejs/dace-plugin-redux/compare/v3.3.8...v3.4.0) (2020-01-16)
 
 
