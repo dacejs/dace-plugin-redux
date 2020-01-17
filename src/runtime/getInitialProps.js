@@ -62,6 +62,8 @@ export default options => Target => class extends Component {
     return ssr ? promise(ctx) : null;
   }
 
+  static pageName = options.pageName || ''
+
   render() {
     // 服务器端渲染时不需要显示 loading
     return <Target {...this.props} />;
