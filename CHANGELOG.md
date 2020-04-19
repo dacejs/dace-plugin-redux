@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.2](https://github.com/dacejs/dace-plugin-redux/compare/v3.4.1...v3.4.2) (2020-04-19)
+
+
+### Bug Fixes
+
+* 修复 server-side HMR 无效的问题 ([058cd3d](https://github.com/dacejs/dace-plugin-redux/commit/058cd3d3160b97037635bf709e95d6e16fd15e5d))
+
 ### [3.4.1](https://github.com/dacejs/dace-plugin-redux/compare/v3.4.0...v3.4.1) (2020-01-17)
 
 
