@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.3](https://github.com/dacejs/dace-plugin-redux/compare/v3.4.2...v3.4.3) (2020-05-12)
+
+
+### Bug Fixes
+
+* 修复 reducer 中 state 默认值initState不生效的问题 ([e25b024](https://github.com/dacejs/dace-plugin-redux/commit/e25b02403c22452000c9baa7201f5892d3e78c1e))
+
 ### [3.4.2](https://github.com/dacejs/dace-plugin-redux/compare/v3.4.1...v3.4.2) (2020-04-19)
 
 
