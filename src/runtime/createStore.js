@@ -13,7 +13,10 @@ import axiosInstance from 'dace/dist/runtime/axiosInstance';
  */
 export default (req) => {
   const isClient = typeof window === 'object';
-  const initialState = isClient ? window.INITIAL_STATE : {};
+  let initialState;
+  if (isClient) {
+    initialState = window.INITIAL_STATE;
+  }
 
   if (req) {
     axiosInstance.defaults.baseURL = `${req.protocol}://${req.headers.host}`;
