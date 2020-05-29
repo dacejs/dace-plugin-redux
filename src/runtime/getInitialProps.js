@@ -23,6 +23,14 @@ export default options => Target => class extends Component {
     super(props, Target);
   }
 
+  componentWillMount() {
+    const { store } = this.props;
+    const { reducer } = options;
+    if (reducer) {
+      store.injectReducer(reducer);
+    }
+  }
+
   async componentDidMount() {
     // 该方法在页面浏览器端渲染时会调用
     // 在浏览器端动态添加reducer
@@ -30,9 +38,6 @@ export default options => Target => class extends Component {
     const { reducer, promise } = options;
     if (!promise) {
       throw new Error('getInitialProps must pass in an object containing the key "promise"');
-    }
-    if (reducer) {
-      store.injectReducer(reducer);
     }
     await promise({ store, match, query });
   }
